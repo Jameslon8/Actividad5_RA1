@@ -7,20 +7,19 @@ Tu nombre y que el trabajo se realiza individualmente.
 Java con Maven, XML y JAXB.
 Para poder usar JAXB haría falta meter estas dependencias en el pom.xml
 
-<dependencies>
+//<dependencies>
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
             <version>4.0.2</version>
         </dependency>
-
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
             <version>4.0.5</version>
             <scope>runtime</scope>
         </dependency>
-</dependencies>
+</dependencies>//
     
 ## Estructura:
 Qué hace cada clase: Videojuego, GestorCSV, Main…
