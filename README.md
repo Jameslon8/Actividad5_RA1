@@ -20,7 +20,7 @@ Para poder usar JAXB haría falta meter estas dependencias en el pom.xml
             <version>4.0.5</version>
             <scope>runtime</scope>
         </dependency>
-    </dependencies>
+</dependencies>
     
 ## Estructura:
 Qué hace cada clase: Videojuego, GestorCSV, Main…
