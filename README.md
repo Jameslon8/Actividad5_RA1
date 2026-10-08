@@ -22,9 +22,23 @@ Para poder usar JAXB haría falta meter estas dependencias en el pom.xml
 </dependencies>*/
     
 ## Estructura:
-Qué hace cada clase: Videojuego, GestorCSV, Main…
+SRC:
+- Aplicación: Menú principal donde se llevaran acabo todas las funciones del programa
+        1. Cargar catálogo desde CSV
+        2. Mostrar catálogo
+        3. Exportar catálogo a XML
+        4. Cargar catálogo desde XML
+        5. Exportar catálogo a CSV
+        6. Buscar videojuego
+        7. Información de ficheros
+- Catalogo: El elemento principal a la hora de hacer el XML. Catalogo englobara todo los atributos de videojuego.
+- Gestor: Para cargar y exportar los archivos csv
+- GestorXML: Para cargar y exportar los archivos xml
+- Videojuego: Los atributos de la clase videojuego
 ## Cómo ejecutarlo:
-Dónde colocar el CSV y cómo iniciar el programa.
+Para ejecutarlo seria en Aplicación con cualquiera de las opciones:
+1. Cargar catálogo desde CSV.
+   
 ## Funcionalidades:
 Qué opciones están implementadas y cuáles están pendientes.
 ## Decisiones técnicas:
@@ -32,4 +46,7 @@ Cómo lees el CSV, qué anotaciones JAXB utilizas y por qué excluyes codigoProv
 ## Errores gestionados:
 Qué ocurre si falta un archivo o hay datos incorrectos.
 ## Pruebas:
-Qué has probado, qué esperabas y qué ocurrió realmente.
+Cargar correctamente el CSV y mostrar catalogo:
+Aquí se puede ver como al cargar el CSV, se cargan todos bien, pudiendolos ver en el catálogo a continuación:
+<img width="1797" height="873" alt="image" src="https://github.com/user-attachments/assets/7f080433-aa3a-4c77-b130-f5ddba2cd76a" />
+<img width="1821" height="908" alt="image" src="https://github.com/user-attachments/assets/4ae88140-5894-4787-8c16-bd8fbf2a2955" />
