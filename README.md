@@ -2,10 +2,10 @@
 ## Descripción:
 Aplicación Java para intercambiar un catálogo de videojuegos entre CSV y XML.
 ## Autor:
-Tu nombre y que el trabajo se realiza individualmente.
+Cristian Adasme Contreras 2ºDAM Individual
 ## Requisitos:
 Java con Maven, XML y JAXB.
-Para poder usar JAXB haría falta meter estas dependencias en el pom.xml
+Para poder usar JAXB haría falta meter estas dependencias en el pom.xml (mirar en code).
 
 /*<dependencies>
         <dependency>
@@ -37,14 +37,39 @@ SRC:
 - Videojuego: Los atributos de la clase videojuego
 ## Cómo ejecutarlo:
 Para ejecutarlo seria en Aplicación con cualquiera de las opciones:
-1. Cargar catálogo desde CSV.
+1. Iniciar el Intellij con la carpeta de este repositorio.
+2. Tener configurado el jdk con maven.
+3. Cambiar si hace el fichero de csv.
+4. Comprobar que los archivos y ficheros tengan nombres correctos.
+5. Iniciar la Aplicación.
+6. Introducir los datos.
    
 ## Funcionalidades:
-Qué opciones están implementadas y cuáles están pendientes.
-## Decisiones técnicas:
-Cómo lees el CSV, qué anotaciones JAXB utilizas y por qué excluyes codigoProveedor del XML.
-## Errores gestionados:
-Qué ocurre si falta un archivo o hay datos incorrectos.
+        1. Cargar catálogo desde CSV:
+        Se le entrega la ruta del fichero del csv para que en gestión en el método ArrayList cargar la reciba para crear un array con el Buffered Reader que vaya         leyendo fila por fila menos la primera que es la de los campos. Las líneas se leen separando los datos por comas y metiendolos en el ArrayList devideojuego.
+        Se detecta si los números son validos y si hay hay la cantidad correcta de datos.
+        Si se hace todo correctamente tendría que devolver el ArrayList a Aplicacion.
+        2. Mostrar catálogo:
+        Una vez esta cargado el CSV en catalogo con un bucle al ArrayList se veran todos los videojuegos con un System.out.println.
+        3. Exportar catálogo a XML:
+        Se le entrega el ArrayList ya cargado del CSV para que en void exportarXML se use la clase Catalago que es el eje principal para que funcione el XML.
+        A continuación se le entrega el contexto sobre lo que contiene la clase Catalogo con JAXBContext. Con ese contexto de campos y atributos se pasa de java a 
+        xml con Marshaller. Se dejo limpio y ordenado y se crea el archivo xml finalmente con todo lo de catalogo.
+        4. Cargar catálogo desde XML:
+        Usando en Aplicacion ArrayList que sea igual a el metodo en GestorXML de cargarXML que nos devuelve otro ArrayList. Aqui se expecifica donde esta el
+        fichero xml y se pondrá el contexto de Catalogo. Ahora se usara Unmarshaller que es para pasar de xml a java y se importara todo al AraayList.
+        5. Exportar catálogo a CSV:
+        Se le entrega el ArrayList ya cargado de xml para que en void exportarCSV indiquemos en donde meter los datos o crearlo si no existe. Se abre el                 BufferedWriter, se escribe la primera linea que es la de los campos y en un bucle vamos metiendo linea por linea los datos leídos mas el codigoProveedor.
+        6. Buscar videojuego:
+        Se escribe un id del juego que se quiera buscar y en un con el tamaño del catalogo se va buscando hasta encontrarlo.
+        7. Información de ficheros:
+        Se hace un array con los nombres de ficheros que se quiera saber la informacion de, y con un bucle se va pasando mientras dan el nombre con file.getName,         la ruta con file.getAbsolutePath y el tamaño con file.lenght.
+## Anotaciones:
+@XmlRootElement: Es para lo que envuelve a todos los campos que se pondrán a continuacion.
+@XmlAccessorType: Convierto los objetos java en xml
+@XmlAttribute: Muestra los campos en el xml dentro del RootElement
+@XmlTransient: No se muestra dentro del xml
+
 ## Pruebas:
 Cargar correctamente el CSV y mostrar catalogo:
 Aquí se puede ver como al cargar el CSV, se cargan todos bien, pudiendolos ver en el catálogo a continuación:
